@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pure CSS Pricing Page</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+  <script>
+    function convertCurrency() {
+      const rate = 0.012;
+      const prices = document.querySelectorAll('.price');
+      prices.forEach(price => {
+        let nprPrice = parseFloat(price.innerText);
+        let usdPrice = nprPrice * rate;
+        price.innerText = usdPrice.toFixed(2);
+      });
+    }
+
+    function revertCurrency() {
+      const rate = 83.61; 
+      const prices = document.querySelectorAll('.price');
+      prices.forEach(price => {
+        let usdPrice = parseFloat(price.innerText);
+        let nprPrice = usdPrice * rate;
+        price.innerText = nprPrice.toFixed(2);
+      });
+    }
+  </script>
+</head>
+<body>
+  <div class="wrapper">
+    <input type="radio" name="slider" id="tab-1">
+    <input type="radio" name="slider" id="tab-2" checked>
+    <input type="radio" name="slider" id="tab-3">
+    <header>
+      <label for="tab-1" class="tab-1">Basic</label>
+      <label for="tab-2" class="tab-2">Standard</label>
+      <label for="tab-3" class="tab-3">Premium</label>
+      <div class="slider"></div>
+    </header>
+    <header>
+        <button onclick="convertCurrency()"> USD</button>
+        <button onclick="revertCurrency()"> INR</button>
+      </header>
+    <div class="card-area">
+      <div class="cards">
+        <div class="row row-1">
+          <div class="price-details">
+            <span class="price">500</span>
+            <p>For beginner use</p>
+          </div>
+          <ul class="features">
+            <li><i class="fas fa-check"></i><span>100 GB Premium Bandwidth</span></li>
+            <li><i class="fas fa-check"></i><span>FREE 50+ Installation Scripts WordPress Supported</span></li>
+            <li><i class="fas fa-check"></i><span>One FREE Domain Registration .com and .np extensions only</span></li>
+            <li><i class="fas fa-check"></i><span>Unlimited Email Accounts & Databases</span></li>
+          </ul>
+        </div>
+        <div class="row">
+          <div class="price-details">
+            <span class="price">900</span>
+            <p>For professional use</p>
+          </div>
+          <ul class="features">
+            <li><i class="fas fa-check"></i><span>Unlimited GB Premium Bandwidth</span></li>
+            <li><i class="fas fa-check"></i><span>FREE 200+ Installation Scripts WordPress Supported</span></li>
+            <li><i class="fas fa-check"></i><span>Five FREE Domain Registration .com and .np extensions only</span></li>
+            <li><i class="fas fa-check"></i><span>Unlimited Email Accounts & Databases</span></li>
+          </ul>
+        </div>
+        <div class="row">
+          <div class="price-details">
+            <span class="price">1600</span>
+            <p>For team collaboration</p>
+          </div>
+          <ul class="features">
+            <li><i class="fas fa-check"></i><span>200 GB Premium Bandwidth</span></li>
+            <li><i class="fas fa-check"></i><span>FREE 100+ Installation Scripts WordPress Supported</span></li>
+            <li><i class="fas fa-check"></i><span>Two FREE Domain Registration .com and .np extensions only</span></li>
+            <li><i class="fas fa-check"></i><span>Unlimited Email Accounts & Databases</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
